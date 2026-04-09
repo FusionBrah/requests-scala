@@ -63,6 +63,7 @@ trait RequestsTestModule extends TestModule.Utest {
 
 object requests extends Module {
   trait RequestsJvmModule extends RequestsCrossScalaModule with RequestsPublishModule {
+    def sources = Task.Sources("src", "src-jvm")
     object test extends ScalaTests with RequestsTestModule
   }
   object jvm extends Cross[RequestsJvmModule](scalaVersions)
